@@ -2,7 +2,6 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-//递归实现二分，妙是妙，栈溢出也是说来就来
 var sortArray = function (nums, begin = 0, end = nums.length - 1) {
     //约束递归条件防止栈溢出
     if (begin >= end) {
@@ -24,7 +23,6 @@ var sortArray = function (nums, begin = 0, end = nums.length - 1) {
             [nums[i], nums[j]] = [nums[j], nums[i]]
         }
     }
-    //考虑到基准数可能就是本次排列中最小的数，所以添加限制条件，防止破坏序列有序性
     if (nums[i] < base) {
         [nums[begin], nums[i]] = [nums[i], nums[begin]]
     }
