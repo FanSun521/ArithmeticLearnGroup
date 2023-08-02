@@ -17,18 +17,20 @@
  * @return {ListNode}
  */
 var deleteDuplicates = function (head) {
-    if (head == null) {
-        return head
-    }
-    let cur = head;
-    while (cur != null && cur.next != null) {
-        if (cur.val === cur.next.val) {
-            cur.next= cur.next.next;
-        } else {
-            cur = cur.next;
-        }
-    }
+  if (head == null) {
+    //防止空输
     return head;
+  }
+  let cur = head; //head是链表的起始地址，如果不新开一个，最后找不到链表的起始位置
+  while ( cur.next ) {
+    //防止对空指针操作
+    if (cur.val === cur.next.val) {
+      //如果cur指针指向的数和cur.next指向的值一样
+      cur.next = cur.next.next; //就将后一个重复的数隔开
+    } else {
+      cur = cur.next; //正常遍历
+    }
+  }
+  return head;  
 };
 // @lc code=end
-
